@@ -1,0 +1,52 @@
+<div class="container" style="padding-top: 48px;">
+  <h1 style="margin-bottom: 32px;">Votre <em>panier</em></h1>
+  {%- if cart.item_count == 0 -%}
+    <div class="stack" style="align-items: flex-start;">
+      <p class="muted">Votre panier est vide.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Découvrir la boutique</a>
+    </div>
+  {%- else -%}
+    <form action="{{ routes.cart_url }}" method="post" class="stack" style="gap: 24px; max-width: 860px;">
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Bijou</th><th>Quantité</th><th>Prix</th></tr></thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr>
+                <td>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  {%- unless item.product.has_only_default_variant %}<span class="muted"> · {{ item.variant.title }}</span>{% endunless -%}
+                  {%- for p in item.properties -%}
+                    {%- if p.last != blank -%}<br><span class="muted" style="font-size: 13px;">{{ p.first }} : {{ p.last }}</span>{%- endif -%}
+                  {%- endfor -%}
+                  <br><a href="{{ item.url_to_remove }}" style="font-size: 13px;">Retirer</a>
+                </td>
+                <td>
+                  <label class="visually-hidden" for="qty-{{ forloop.index }}">Quantité</label>
+                  <input id="qty-{{ forloop.index }}" class="input cart-line-qty" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+                </td>
+                <td>{{ item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+      <div class="field">
+        <label for="note">Un mot pour moi (occasion, message à glisser dans le colis)</label>
+        <textarea id="note" name="note" class="textarea" style="min-height: 100px;">{{ cart.note }}</textarea>
+      </div>
+      <div class="row-between">
+        <span class="price" style="font-size: 22px;">Total : {{ cart.total_price | money }}</span>
+        <div class="btn-row">
+          <button type="submit" name="update" class="btn">Mettre à jour</button>
+          <button type="submit" name="checkout" class="btn btn-primary">Passer commande</button>
+        </div>
+      </div>
+      <p class="muted" style="font-size: 14px;">Frais de port calculés à l'étape suivante.</p>
+    </form>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{ "name": "Panier", "settings": [] }
+{% endschema %}

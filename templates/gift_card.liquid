@@ -1,0 +1,20 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carte cadeau · {{ shop.name }}</title>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="dark" style="min-height: 100vh;">
+    <div class="container center stack" style="align-items: center; padding: 96px 16px; gap: 20px;">
+      <h1>Votre carte <em>cadeau</em></h1>
+      <p class="price" style="font-size: 32px;">{{ gift_card.balance | money }}</p>
+      <p class="lead">Code : <strong>{{ gift_card.code | format_code }}</strong></p>
+      {%- if gift_card.expired -%}<p class="muted">Cette carte a expiré.</p>{%- endif -%}
+      <a href="{{ shop.url }}" class="btn btn-primary">Utiliser sur la boutique</a>
+    </div>
+  </body>
+</html>

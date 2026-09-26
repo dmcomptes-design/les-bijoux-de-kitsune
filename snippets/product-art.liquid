@@ -1,0 +1,68 @@
+{%- comment -%} Illustration provisoire (perles) quand le produit n'a pas encore de photo. {%- endcomment -%}
+{%- liquid
+  assign bead = '#b9a3c6'
+  assign t = product.title | downcase
+  if t contains 'améthyste' or t contains 'violet' or t contains 'pourpre' or t contains 'fluorite'
+    assign bead = '#9b7fd4'
+  elsif t contains 'rose' or t contains 'tendresse' or t contains 'cœur'
+    assign bead = '#e7a6b8'
+  elsif t contains 'obsidienne' or t contains 'onyx' or t contains 'lave' or t contains 'ancrage'
+    assign bead = '#3a2f36'
+  elsif t contains 'citrine' or t contains 'soleil' or t contains 'rayon'
+    assign bead = '#e8b64c'
+  elsif t contains 'lapis' or t contains 'sodalite' or t contains 'azur' or t contains 'marine' or t contains 'bleu'
+    assign bead = '#3f5bc2'
+  elsif t contains 'amazonite' or t contains 'aigue' or t contains 'émeraude' or t contains 'végétale' or t contains 'lagon'
+    assign bead = '#5fb3a1'
+  elsif t contains 'lune' or t contains 'neige' or t contains 'flocon' or t contains 'howlite' or t contains 'écume'
+    assign bead = '#dfe3f5'
+  elsif t contains 'tigre' or t contains 'bois' or t contains 'santal' or t contains 'fumé'
+    assign bead = '#a8742b'
+  endif
+-%}
+<svg viewBox="0 0 200 120" role="img" aria-label="Photo à venir : {{ product.title | escape }}">
+  {%- for i in (0..10) -%}
+    {%- liquid
+      case i
+        when 0
+          assign cx = 30
+          assign cy = 48
+        when 1
+          assign cx = 40
+          assign cy = 63
+        when 2
+          assign cx = 53
+          assign cy = 76
+        when 3
+          assign cx = 68
+          assign cy = 86
+        when 4
+          assign cx = 84
+          assign cy = 92
+        when 5
+          assign cx = 100
+          assign cy = 94
+        when 6
+          assign cx = 116
+          assign cy = 92
+        when 7
+          assign cx = 132
+          assign cy = 86
+        when 8
+          assign cx = 147
+          assign cy = 76
+        when 9
+          assign cx = 160
+          assign cy = 63
+        else
+          assign cx = 170
+          assign cy = 48
+      endcase
+    -%}
+    {%- if i == 5 -%}
+      <circle cx="{{ cx }}" cy="{{ cy }}" r="11" fill="#c9a96e" stroke="#2d1f2e" stroke-width="1"/>
+    {%- else -%}
+      <circle cx="{{ cx }}" cy="{{ cy }}" r="7" fill="{{ bead }}" stroke="#2d1f2e" stroke-width="1"/>
+    {%- endif -%}
+  {%- endfor -%}
+</svg>

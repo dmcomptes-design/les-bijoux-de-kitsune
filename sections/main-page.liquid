@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="{{ routes.root_url }}">Accueil</a><span>/</span><span>{{ page.title }}</span></nav>
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+    <h1>{% if section.settings.title != blank %}{{ section.settings.title }} <em>{{ section.settings.title_em }}</em>{% else %}{{ page.title }}{% endif %}</h1>
+  </div>
+  <div class="prose rte">{{ page.content }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre affiché", "info": "Laisser vide pour le titre de la page." },
+    { "type": "text", "id": "title_em", "label": "Fin du titre (italique)" }
+  ]
+}
+{% endschema %}

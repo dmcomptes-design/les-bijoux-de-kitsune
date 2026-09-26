@@ -1,0 +1,22 @@
+{%- comment -%} Carte produit. Paramètre : product. {%- endcomment -%}
+<a href="{{ product.url }}" class="card">
+  <div class="art">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '(min-width: 1200px) 25vw, 50vw', alt: product.featured_image.alt | default: product.title }}
+    {%- else -%}
+      {% render 'product-art', product: product %}
+    {%- endif -%}
+    {% render 'range-badges', product: product %}
+  </div>
+  <div class="card-body">
+    <span class="card-name">{{ product.title }}</span>
+    <span class="card-meta">
+      {%- if product.tags contains 'fait-main' -%}Fait main{%- else -%}Sélectionné par Kitsune{%- endif -%}
+      {%- if product.tags contains 'personnalise' %} · personnalisé{% endif -%}
+      {%- unless product.available %} · épuisé{% endunless -%}
+    </span>
+    <span class="price">
+      {%- if product.price_varies -%}Dès {% endif -%}{{ product.price | money }}
+    </span>
+  </div>
+</a>

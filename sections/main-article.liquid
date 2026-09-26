@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="{{ blog.url }}">{{ blog.title }}</a><span>/</span><span>{{ article.title }}</span></nav>
+    <h1>{{ article.title }}</h1>
+    <span class="muted">{{ article.published_at | date: '%d/%m/%Y' }}</span>
+  </div>
+  <div class="prose rte">{{ article.content }}</div>
+</div>
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

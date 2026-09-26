@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "eyebrow": "Le rituel Kitsune",
+        "title": "Avant de vous rejoindre,",
+        "title_em": "chaque création passe entre mes mains."
+      }
+    },
+    "steps": {
+      "type": "promise",
+      "settings": {
+        "eyebrow": "Trois gestes",
+        "title": "Toujours",
+        "title_em": "les mêmes.",
+        "text": "Le rituel ne concerne que les créations faites main : Signature Kitsune et Les Essentiels. La Sélection part directement de chez nos fournisseurs.",
+        "button_label": "Découvrir les créations faites main",
+        "button_link": "/collections/signature"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "number": "i.",
+            "title": "Je choisis la pierre",
+            "text": "Pour sa couleur, sa matière et ce qu'elle évoque dans la tradition de la lithothérapie. Chaque pierre est nommée telle qu'elle est : naturelle, teintée ou traitée."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "number": "ii.",
+            "title": "Je la purifie et j'assemble",
+            "text": "Encens, eau, sel ou son, puis l'assemblage à la main, perle après perle."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "number": "iii.",
+            "title": "J'y dépose une intention",
+            "text": "Un moment de calme avant l'envoi. Un geste personnel, qui fait de ce bijou un rappel porté au poignet."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "steps"
+  ]
+}

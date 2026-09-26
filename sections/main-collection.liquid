@@ -1,0 +1,72 @@
+{%- liquid
+  assign type_filter = nil
+  for filter in collection.filters
+    if filter.param_name == 'filter.p.product_type'
+      assign type_filter = filter
+    endif
+  endfor
+-%}
+<div class="container">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="{{ routes.root_url }}">Accueil</a><span>/</span><span>{{ collection.title }}</span></nav>
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="lead rte">{{ collection.description }}</div>
+    {%- endif -%}
+  </div>
+
+  <div class="stack" style="gap: 12px; margin-bottom: 32px;">
+    <div class="pills" aria-label="Gammes">
+      <a class="pill" href="{{ routes.all_products_collection_url }}"{% if collection.handle == 'all' %} aria-current="page"{% endif %}>Toutes les gammes</a>
+      <a class="pill" href="{{ routes.collections_url }}/signature"{% if collection.handle == 'signature' %} aria-current="page"{% endif %}>Signature Kitsune</a>
+      <a class="pill" href="{{ routes.collections_url }}/essentiels"{% if collection.handle == 'essentiels' %} aria-current="page"{% endif %}>Les Essentiels</a>
+      <a class="pill" href="{{ routes.collections_url }}/selection"{% if collection.handle == 'selection' %} aria-current="page"{% endif %}>La Sélection</a>
+    </div>
+    {%- if type_filter and type_filter.values.size > 1 -%}
+      <div class="pills" aria-label="Type de bijou">
+        <a class="pill" href="{{ type_filter.url_to_remove }}"{% if type_filter.active_values.size == 0 %} aria-current="page"{% endif %}>Tous les bijoux</a>
+        {%- for value in type_filter.values -%}
+          <a class="pill" href="{% if value.active %}{{ value.url_to_remove }}{% else %}{{ value.url_to_add }}{% endif %}"{% if value.active %} aria-current="page"{% endif %}>{{ value.label }}</a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    <span class="muted" style="font-size: 14px;">{{ collection.products_count }} {% if collection.products_count > 1 %}bijoux{% else %}bijou{% endif %}</span>
+  </div>
+
+  {%- if collection.handle == 'selection' -%}
+    <p class="note" style="margin-bottom: 32px;">La Sélection Kitsune réunit des bijoux que je choisis chez des fournisseurs de confiance. Ils ne sont pas faits main et partent directement de chez eux : le délai de livraison est indiqué sur chaque fiche.</p>
+  {%- endif -%}
+
+  {%- paginate collection.products by 24 -%}
+    {%- if collection.products.size > 0 -%}
+      <div class="grid grid-4">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="muted">Aucun bijou ici pour le moment. <a href="{{ routes.all_products_collection_url }}">Voir toute la boutique</a></p>
+    {%- endif -%}
+    {%- if paginate.pages > 1 -%}
+      <nav class="pagination" aria-label="Pages">
+        {%- if paginate.previous -%}<a class="pill" href="{{ paginate.previous.url }}">Précédent</a>{%- endif -%}
+        <span class="pill" aria-current="page">{{ paginate.current_page }} / {{ paginate.pages }}</span>
+        {%- if paginate.next -%}<a class="pill" href="{{ paginate.next.url }}">Suivant</a>{%- endif -%}
+      </nav>
+    {%- endif -%}
+  {%- endpaginate -%}
+
+  {%- if collection.handle == 'essentiels' -%}
+    <p class="note" style="margin-top: 48px;">La lithothérapie est une tradition, pas une médecine. Mes bijoux accompagnent une intention ; ils ne remplacent ni un avis médical, ni un traitement.</p>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre" }
+  ]
+}
+{% endschema %}

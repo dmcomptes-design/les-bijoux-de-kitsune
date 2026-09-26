@@ -1,0 +1,48 @@
+<section class="section dark">
+  <div class="container ritual">
+    <div class="stack" style="gap: 20px;">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.title }} <em>{{ section.settings.title_em }}</em></h2>
+      <p class="muted">{{ section.settings.text }}</p>
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '/pages/rituel' }}" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+    <ol class="steps">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <span class="step-n">{{ block.settings.number }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p class="muted">{{ block.settings.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promesse et rituel",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "La promesse Kitsune" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Vous n'avez pas besoin d'un bijou de plus." },
+    { "type": "text", "id": "title_em", "label": "Fin du titre (italique)", "default": "Vous avez besoin de celui-là." },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Il y a des moments où l'on cherche quelque chose à ancrer. Un rappel doux, porté au poignet. Mes créations sont pensées et assemblées à la main, pour accompagner ce que vous vivez, pas seulement ce que vous portez." },
+    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Découvrir le rituel" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Numéro", "default": "i." },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Je choisis la pierre" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Pour sa couleur, sa matière et ce qu'elle évoque. Chaque pierre est nommée telle qu'elle est." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Promesse et rituel", "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }] }]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+<footer class="site-footer dark">
+  <div class="container footer-inner">
+    <div class="stack" style="max-width: 320px;">
+      <img src="{{ 'logo-bijoux-kitsune-prune.svg' | asset_url }}" alt="{{ shop.name }}" width="150" height="170" loading="lazy">
+      <p class="muted" style="font-size: 14px;">{{ section.settings.tagline }}</p>
+    </div>
+    <div class="footer-cols">
+      <div class="stack" style="gap: 10px;">
+        <span class="eyebrow">Boutique</span>
+        <a href="{{ routes.collections_url }}/signature">Signature Kitsune</a>
+        <a href="{{ routes.collections_url }}/essentiels">Les Essentiels</a>
+        <a href="{{ routes.collections_url }}/selection">La Sélection</a>
+        <a href="/pages/contact">Bijou sur demande</a>
+      </div>
+      <div class="stack" style="gap: 10px;">
+        <span class="eyebrow">Informations</span>
+        {%- for policy in shop.policies -%}
+          <a href="{{ policy.url }}">{{ policy.title }}</a>
+        {%- endfor -%}
+        <a href="/pages/mentions-legales">Mentions légales</a>
+      </div>
+      <div class="stack" style="gap: 10px;">
+        <span class="eyebrow">La maison</span>
+        <a href="/pages/notre-histoire">Notre histoire</a>
+        <a href="/pages/rituel">Le rituel Kitsune</a>
+        <a href="/pages/contact">Contact</a>
+        {%- if settings.instagram_url != blank -%}<a href="{{ settings.instagram_url }}">Instagram</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }} — Tous droits réservés</span>
+    <span>{{ section.settings.signature }}</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pied de page",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Phrase sous le logo", "default": "Une maison du Monde de Kitsune." },
+    { "type": "text", "id": "signature", "label": "Signature en bas de page", "default": "Porter ce qui résonne." }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,149 @@
+{%- liquid
+  assign handmade = false
+  if product.tags contains 'fait-main'
+    assign handmade = true
+  endif
+  assign personalised = false
+  if product.tags contains 'personnalise'
+    assign personalised = true
+  endif
+  assign range_handle = 'selection'
+  assign range_title = 'La Sélection'
+  if product.tags contains 'gamme:signature'
+    assign range_handle = 'signature'
+    assign range_title = 'Signature Kitsune'
+  elsif product.tags contains 'gamme:essentiels'
+    assign range_handle = 'essentiels'
+    assign range_title = 'Les Essentiels'
+  endif
+  assign current_variant = product.selected_or_first_available_variant
+  assign title_down = product.title | downcase
+-%}
+<div class="container">
+  <nav class="crumbs" aria-label="Fil d'Ariane" style="padding: 32px 0;">
+    <a href="{{ routes.root_url }}">Accueil</a><span>/</span>
+    <a href="{{ routes.all_products_collection_url }}">Boutique</a><span>/</span>
+    <a href="{{ routes.collections_url }}/{{ range_handle }}">{{ range_title }}</a><span>/</span>
+    <span>{{ product.title }}</span>
+  </nav>
+  <div class="product">
+    <div class="stack product-media">
+      <div class="art" style="aspect-ratio: 4 / 5;">
+        {%- if product.featured_media -%}
+          {{ product.featured_media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '600,900,1200,1400', sizes: '(min-width: 900px) 50vw, 100vw' }}
+        {%- else -%}
+          {% render 'product-art', product: product %}
+        {%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="product-thumbs">
+          {%- for media in product.media offset: 1 limit: 8 -%}
+            {{ media | image_url: width: 400 | image_tag: loading: 'lazy' }}
+          {%- endfor -%}
+        </div>
+      {%- elsif product.media.size == 0 -%}
+        <p class="muted" style="font-size: 13px;">Photo à venir : illustration provisoire.</p>
+      {%- endif -%}
+    </div>
+
+    <div class="stack" style="gap: 20px;">
+      {% render 'range-badges', product: product, full: true %}
+      <h1 style="font-size: 44px; line-height: 1.15;">{{ product.title }}</h1>
+      <div class="price">{{ current_variant.price | money }}</div>
+
+      {%- form 'product', product, class: 'stack', style: 'gap: 16px;' -%}
+        {%- if product.has_only_default_variant -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- else -%}
+          <fieldset class="variant-pills">
+            <legend>{{ product.options.first }}</legend>
+            {%- for variant in product.variants -%}
+              <input type="radio" name="id" id="v-{{ variant.id }}" value="{{ variant.id }}"
+                {%- if variant.id == current_variant.id %} checked{% endif -%}
+                {%- unless variant.available %} disabled{% endunless -%}>
+              <label for="v-{{ variant.id }}" class="pill">{{ variant.title }}</label>
+            {%- endfor -%}
+          </fieldset>
+        {%- endif -%}
+        {%- if personalised -%}
+          <div class="field">
+            <label for="infos-{{ product.id }}">Vos informations (date, heure et lieu de naissance, intention)</label>
+            <textarea id="infos-{{ product.id }}" name="properties[Informations]" class="textarea" style="min-height: 110px;" placeholder="Par exemple : 12 mars 1990, 14 h 30, Clermont-Ferrand"></textarea>
+          </div>
+        {%- endif -%}
+        <button type="submit" name="add" class="btn btn-primary" style="min-height: 56px;"{% unless current_variant.available %} disabled{% endunless %}>
+          {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
+        </button>
+        {{ form | payment_terms }}
+      {%- endform -%}
+
+      <ul class="reassure-list">
+        {%- if handmade -%}
+          <li>Fait main en France{% if personalised %}, assemblé pour vous en 48 à 72 heures{% endif %}</li>
+          <li>Passé par le rituel Kitsune avant l'envoi</li>
+          <li>{% if personalised %}Pièce personnalisée : sans droit de rétractation{% else %}14 jours pour changer d'avis{% endif %}</li>
+        {%- else -%}
+          <li>Choisi et vérifié par Kitsune sur échantillon</li>
+          <li>Expédié par notre partenaire sous {{ settings.delai_selection }}</li>
+          <li>14 jours pour changer d'avis</li>
+        {%- endif -%}
+      </ul>
+
+      <div>
+        <details class="acc" open>
+          <summary>Description</summary>
+          <div class="rte">{{ product.description }}</div>
+        </details>
+        {%- if handmade -%}
+          <details class="acc">
+            <summary>Le rituel Kitsune</summary>
+            <div><p>Avant l'envoi, je prends un moment de calme avec chaque pièce et j'y dépose une intention. C'est un geste personnel, qui fait de ce bijou un rappel porté au poignet.</p></div>
+          </details>
+        {%- endif -%}
+        <details class="acc">
+          <summary>Entretien</summary>
+          <div><p>Retirez votre bijou pour la douche, la baignade et le sport. Rangez-le à plat, à l'abri de la lumière directe.</p></div>
+        </details>
+        <details class="acc">
+          <summary>Livraison et retours</summary>
+          <div>
+            {%- if handmade -%}
+              <p>Expédié depuis la France sous {{ settings.delai_atelier }}.</p>
+            {%- else -%}
+              <p>Expédié directement par notre partenaire, sous {{ settings.delai_selection }}.</p>
+            {%- endif -%}
+            <p>{% if personalised %}Les pièces personnalisées sont fabriquées pour vous : le droit de rétractation ne s'applique pas.{% else %}Vous disposez de 14 jours après réception pour changer d'avis.{% endif %}</p>
+            {%- if shop.refund_policy -%}<a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>{%- endif -%}
+          </div>
+        </details>
+      </div>
+
+      {%- if title_down contains 'enfant' -%}
+        <p class="note">Petites perles : ne convient pas aux enfants de moins de 3 ans. À porter sous la surveillance d'un adulte.</p>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- assign related = collections[range_handle].products -%}
+  {%- if related.size > 1 -%}
+    <section class="stack" style="gap: 32px;">
+      <h2>Vous aimerez <em>aussi</em></h2>
+      <div class="grid grid-4">
+        {%- assign shown = 0 -%}
+        {%- for p in related -%}
+          {%- if p.id != product.id and shown < 4 -%}
+            {% render 'product-card', product: p %}
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Fiche produit",
+  "settings": []
+}
+{% endschema %}

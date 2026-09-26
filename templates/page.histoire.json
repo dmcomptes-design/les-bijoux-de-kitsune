@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "title": "Je m'appelle Denis.",
+        "title_em": "Et je crois que les pierres ont quelque chose à raconter."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

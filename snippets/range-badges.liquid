@@ -1,0 +1,17 @@
+{%- comment -%}
+  Badges de gamme d'un produit, à partir de ses étiquettes :
+  gamme:signature, gamme:essentiels, gamme:selection, fait-main, rituel.
+  Paramètres : product, full (true pour le nom complet de la gamme).
+{%- endcomment -%}
+<div class="badges">
+  {%- if product.tags contains 'gamme:signature' -%}
+    <span class="badge badge-signature">{% if full %}Signature Kitsune{% else %}Signature{% endif %}</span>
+  {%- elsif product.tags contains 'gamme:essentiels' -%}
+    <span class="badge badge-essentiels">{% if full %}Les Essentiels{% else %}Essentiels{% endif %}</span>
+  {%- elsif product.tags contains 'gamme:selection' -%}
+    <span class="badge badge-selection">Sélection Kitsune</span>
+  {%- endif -%}
+  {%- if product.tags contains 'fait-main' or product.tags contains 'rituel' -%}
+    <span class="badge badge-rituel">Rituel</span>
+  {%- endif -%}
+</div>

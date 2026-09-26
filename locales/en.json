@@ -1,0 +1,15 @@
+{
+  "general": {
+    "password_page": {
+      "title": "Coming soon",
+      "lead": "Les Bijoux de Kitsune open soon.",
+      "login": "Enter using password",
+      "password": "Password",
+      "submit": "Enter"
+    }
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out"
+  }
+}

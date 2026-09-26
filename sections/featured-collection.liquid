@@ -1,0 +1,36 @@
+<section class="section container stack" style="gap: 40px;">
+  <div class="row-between">
+    <div class="stack" style="gap: 12px;">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.title }} <em>{{ section.settings.title_em }}</em></h2>
+    </div>
+    {%- assign c = section.settings.collection -%}
+    <a href="{% if c != blank %}{{ c.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}" class="link-arrow">{{ section.settings.link_label }}</a>
+  </div>
+  <div class="grid grid-4">
+    {%- if c != blank and c.products_count > 0 -%}
+      {%- for product in c.products limit: section.settings.count -%}
+        {% render 'product-card', product: product %}
+      {%- endfor -%}
+    {%- else -%}
+      {%- for product in collections.all.products limit: section.settings.count -%}
+        {% render 'product-card', product: product %}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produits mis en avant",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Nos créations" },
+    { "type": "text", "id": "title_em", "label": "Fin du titre (italique)", "default": "les plus aimées" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "count", "label": "Nombre de produits", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "text", "id": "link_label", "label": "Lien", "default": "Voir toute la boutique" }
+  ],
+  "presets": [{ "name": "Produits mis en avant" }]
+}
+{% endschema %}

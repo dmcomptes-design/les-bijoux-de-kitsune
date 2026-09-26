@@ -1,0 +1,42 @@
+<section class="hero dark">
+  <div class="container hero-inner">
+    <div class="stack" style="gap: 28px;">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="hero-title">{{ section.settings.title }}<br><em>{{ section.settings.title_em }}</em></h1>
+      <p class="lead">{{ section.settings.text }}</p>
+      <div class="btn-row" style="margin-top: 8px;">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a href="{{ section.settings.button2_link | default: '/pages/contact' }}" class="btn">{{ section.settings.button2_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="hero-art">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 45vw, 100vw' }}
+      {%- else -%}
+        <img src="{{ 'logo-bijoux-kitsune-prune.svg' | asset_url }}" alt="{{ shop.name }} : un renard doré assis sur un croissant de lune" width="400" height="453">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ouverture",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "Pierres naturelles · créations et sélection" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Chaque pierre porte une intention." },
+    { "type": "text", "id": "title_em", "label": "Fin du titre (italique)", "default": "Chaque bijou, la vôtre." },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Des bijoux en pierres naturelles : mes créations, assemblées à la main, et une sélection de pièces que j'ai choisies pour vous." },
+    { "type": "image_picker", "id": "image", "label": "Image (le logo par défaut)" },
+    { "type": "text", "id": "button_label", "label": "Bouton principal", "default": "Entrer dans la boutique" },
+    { "type": "url", "id": "button_link", "label": "Lien du bouton principal" },
+    { "type": "text", "id": "button2_label", "label": "Second bouton", "default": "Créer mon bijou sur demande" },
+    { "type": "url", "id": "button2_link", "label": "Lien du second bouton" }
+  ],
+  "presets": [{ "name": "Ouverture" }]
+}
+{% endschema %}

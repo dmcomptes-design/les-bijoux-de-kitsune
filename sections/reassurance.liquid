@@ -1,0 +1,23 @@
+<ul class="reassurance dark prune">
+  {%- for block in section.blocks -%}
+    <li {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></li>
+  {%- endfor -%}
+</ul>
+
+{% schema %}
+{
+  "name": "Réassurance",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Fait main en France" },
+        { "type": "text", "id": "text", "label": "Texte", "default": "Pour Signature Kitsune et Les Essentiels" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Réassurance", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}

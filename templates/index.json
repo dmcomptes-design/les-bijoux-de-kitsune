@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "reassurance": {
+      "type": "reassurance",
+      "blocks": {
+        "r1": {
+          "type": "item",
+          "settings": {
+            "title": "Fait main en France",
+            "text": "Pour Signature Kitsune et Les Essentiels"
+          }
+        },
+        "r2": {
+          "type": "item",
+          "settings": {
+            "title": "Pierres nommées honnêtement",
+            "text": "Naturelle, teintée ou traitée : c'est écrit sur la fiche"
+          }
+        },
+        "r3": {
+          "type": "item",
+          "settings": {
+            "title": "Le rituel Kitsune",
+            "text": "Chaque création faite main passe entre mes mains avant l'envoi"
+          }
+        },
+        "r4": {
+          "type": "item",
+          "settings": {
+            "title": "14 jours pour changer d'avis",
+            "text": "Et une réponse personnelle à chaque question"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ]
+    },
+    "promise": {
+      "type": "promise",
+      "settings": {},
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "number": "i.",
+            "title": "Je choisis la pierre",
+            "text": "Pour sa couleur, sa matière et ce qu'elle évoque. Chaque pierre est nommée telle qu'elle est."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "number": "ii.",
+            "title": "J'assemble à la main",
+            "text": "Perle après perle, dans mon atelier près de Clermont-Ferrand."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "number": "iii.",
+            "title": "J'y dépose une intention",
+            "text": "Un moment de calme avant l'envoi : un rappel doux, porté au poignet."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "ranges": {
+      "type": "ranges",
+      "settings": {},
+      "blocks": {
+        "g1": {
+          "type": "range",
+          "settings": {
+            "collection": "signature",
+            "style": "signature",
+            "badge": "Signature",
+            "text": "Des pièces faites main et personnalisées : votre signe solaire, votre lune, votre chemin de vie, trois pierres choisies pour vous."
+          }
+        },
+        "g2": {
+          "type": "range",
+          "settings": {
+            "collection": "essentiels",
+            "style": "essentiels",
+            "badge": "Essentiels",
+            "text": "Une pierre, une intention. Les Essences Stellaires et leurs porte-clés, faits main à prix doux."
+          }
+        },
+        "g3": {
+          "type": "range",
+          "settings": {
+            "collection": "selection",
+            "style": "selection",
+            "badge": "Sélection Kitsune",
+            "text": "Colliers, bagues, boucles d'oreilles et bracelets que j'ai choisis chez des fournisseurs de confiance, pour compléter l'univers Kitsune."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ]
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "signature",
+        "title": "Nos créations",
+        "title_em": "les plus aimées",
+        "count": 4,
+        "link_label": "Voir toute la boutique"
+      }
+    },
+    "quote": {
+      "type": "quote",
+      "settings": {}
+    },
+    "selection": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "La Sélection Kitsune",
+        "collection": "selection",
+        "title": "Des bijoux",
+        "title_em": "choisis pour vous",
+        "count": 4,
+        "link_label": "Voir la Sélection"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "reassurance",
+    "promise",
+    "ranges",
+    "featured",
+    "quote",
+    "selection"
+  ]
+}

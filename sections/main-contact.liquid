@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="{{ routes.root_url }}">Accueil</a><span>/</span><span>{{ page.title }}</span></nav>
+    <h1>{{ section.settings.title }} <em>{{ section.settings.title_em }}</em></h1>
+    <p class="lead">{{ section.settings.text }}</p>
+  </div>
+  <div style="display: grid; gap: 48px; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start;">
+    {%- form 'contact', class: 'stack', style: 'gap: 20px; max-width: 640px;' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-success" role="status">Merci, votre message est bien arrivé. Je vous réponds très vite.</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <div class="form-error" role="alert">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+      <div class="field"><label for="c-nom">Prénom et nom</label><input id="c-nom" name="contact[name]" class="input" autocomplete="name" required></div>
+      <div class="field"><label for="c-email">E-mail</label><input id="c-email" name="contact[email]" type="email" class="input" autocomplete="email" required></div>
+      <div class="field">
+        <label for="c-objet">Objet</label>
+        <select id="c-objet" name="contact[objet]" class="select">
+          <option>Question sur une commande</option>
+          <option>Bijou sur demande</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="contact[body]" class="textarea" required placeholder="Pour un bijou sur demande : pour qui, l'occasion, les couleurs ou pierres qui vous parlent, votre budget"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Envoyer</button>
+    {%- endform -%}
+    <div class="panel stack frame">
+      <h3>Coordonnées</h3>
+      <p class="muted">E-mail : {{ settings.contact_email }}</p>
+      {%- if settings.instagram_url != blank -%}<p class="muted"><a href="{{ settings.instagram_url }}">Instagram</a></p>{%- endif -%}
+      <p class="muted">{{ section.settings.delay }}</p>
+      {%- if page.content != blank -%}<div class="rte">{{ page.content }}</div>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Parlons de" },
+    { "type": "text", "id": "title_em", "label": "Fin du titre (italique)", "default": "votre bijou." },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Une question sur une commande, une pierre, une taille ? Une idée de création pour vous ou pour quelqu'un que vous aimez ? Écrivez-moi : je vous réponds personnellement." },
+    { "type": "text", "id": "delay", "label": "Délai de réponse", "default": "Je réponds sous [délai]." }
+  ]
+}
+{% endschema %}

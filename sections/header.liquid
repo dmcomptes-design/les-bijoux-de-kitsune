@@ -1,0 +1,60 @@
+<header class="site-header dark">
+  <div class="container header-inner">
+    <a href="{{ routes.root_url }}" class="brand" aria-label="{{ shop.name }}, accueil">
+      <img src="{{ 'logo-kitsune-lune-prune.svg' | asset_url }}" alt="" width="62" height="56">
+      <span>{{ shop.name }}</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- else -%}
+        <a href="{{ routes.collections_url }}/signature">Signature</a>
+        <a href="{{ routes.collections_url }}/essentiels">Les Essentiels</a>
+        <a href="{{ routes.collections_url }}/selection">La Sélection</a>
+        <a href="/pages/rituel">Le rituel</a>
+        <a href="/pages/notre-histoire">Notre histoire</a>
+      {%- endfor -%}
+    </nav>
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" class="icon-btn" aria-label="Rechercher">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/></svg>
+      </a>
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Panier, {{ cart.item_count }} article{% if cart.item_count > 1 %}s{% endif %}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
+      </a>
+      <details class="nav-mobile">
+        <summary class="icon-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </summary>
+        <nav aria-label="Navigation mobile">
+          <a href="{{ routes.all_products_collection_url }}">Toute la boutique</a>
+          {%- for link in section.settings.menu.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- else -%}
+            <a href="{{ routes.collections_url }}/signature">Signature</a>
+            <a href="{{ routes.collections_url }}/essentiels">Les Essentiels</a>
+            <a href="{{ routes.collections_url }}/selection">La Sélection</a>
+            <a href="/pages/rituel">Le rituel</a>
+            <a href="/pages/notre-histoire">Notre histoire</a>
+          {%- endfor -%}
+          <a href="/pages/contact">Contact</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "En-tête",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "Laisser vide pour le menu par défaut : Signature, Les Essentiels, La Sélection, Le rituel, Notre histoire."
+    }
+  ]
+}
+{% endschema %}

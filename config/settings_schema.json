@@ -1,0 +1,19 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Kitsune",
+    "theme_version": "1.0.0",
+    "theme_author": "Les Bijoux de Kitsune",
+    "theme_documentation_url": "https://github.com/dmcomptes-design/les-bijoux-de-kitsune",
+    "theme_support_url": "https://github.com/dmcomptes-design/les-bijoux-de-kitsune"
+  },
+  {
+    "name": "Boutique",
+    "settings": [
+      { "type": "text", "id": "contact_email", "label": "E-mail affiché", "default": "[adresse e-mail]" },
+      { "type": "url", "id": "instagram_url", "label": "Lien Instagram" },
+      { "type": "text", "id": "delai_atelier", "label": "Délai d'expédition des créations faites main", "default": "2 à 5 jours ouvrés" },
+      { "type": "text", "id": "delai_selection", "label": "Délai d'expédition de la Sélection", "default": "[délai fournisseur]" }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="page-head"><h1>Nos <em>collections</em></h1></div>
+  <div class="ranges">
+    {%- for c in collections -%}
+      {%- unless c.handle == 'all' or c.handle == 'frontpage' -%}
+        <a href="{{ c.url }}" class="range-card"><h3>{{ c.title }}</h3><span class="muted">{{ c.products_count }} bijoux</span><span class="link-arrow">Voir</span></a>
+      {%- endunless -%}
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}
+{ "name": "Liste des collections", "settings": [] }
+{% endschema %}
