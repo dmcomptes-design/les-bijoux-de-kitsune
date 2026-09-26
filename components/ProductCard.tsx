@@ -14,9 +14,10 @@ export function RangeBadges({ product, full = false }: { product: Product; full?
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/boutique/${product.slug}`} className="card">
-      <ProductArt product={product} />
-      <div className="card-body">
+      <ProductArt product={product}>
         <RangeBadges product={product} />
+      </ProductArt>
+      <div className="card-body">
         <span className="card-name">{product.name}</span>
         <span className="card-meta">
           {product.handmade ? "Fait main" : "Sélectionné par Kitsune"}

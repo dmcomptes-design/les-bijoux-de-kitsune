@@ -24,7 +24,7 @@ export default async function Boutique({ searchParams }: { searchParams: Promise
     <div className="container">
       <div className="page-head">
         <nav className="crumbs" aria-label="Fil d'Ariane"><Link href="/">Accueil</Link><span>/</span><span>Boutique</span></nav>
-        <h1>La boutique</h1>
+        <h1>La <em>boutique</em></h1>
         <p className="lead">Mes créations faites main et la Sélection Kitsune. Chaque fiche indique la gamme, la pierre et son origine.</p>
       </div>
       <div className="stack" style={{ gap: 12, marginBottom: 32 }}>

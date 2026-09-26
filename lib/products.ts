@@ -90,5 +90,5 @@ const STONES: [RegExp, string][] = [
 
 export function stoneColor(p: Product): string {
   for (const [re, c] of STONES) if (re.test(p.name) || re.test(p.oldName)) return c;
-  return "#b8bcef";
+  return "#b9a3c6";
 }

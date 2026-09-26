@@ -11,10 +11,10 @@ export const NAV = [
 
 export default function Header() {
   return (
-    <header className="site-header">
+    <header className="site-header dark">
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="Les Bijoux de Kitsune, accueil">
-          <img src="/logos/kitsune-lune-nuit.svg" alt="" width={62} height={56} />
+          <img src="/logos/kitsune-lune-prune.svg" alt="" width={62} height={56} />
           <span>Les Bijoux de Kitsune</span>
         </Link>
         <nav className="nav-desktop" aria-label="Navigation principale">

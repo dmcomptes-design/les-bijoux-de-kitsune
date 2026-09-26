@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Signature Kitsune", description: "De
 export default function Signature() {
   return (
     <div className="container">
-      <PageHead crumb="Signature Kitsune" eyebrow="Fait main · personnalisé" title="Signature Kitsune — plus qu'un bijou, un rituel." lead="Des pièces uniques, assemblées à la main pour une personne. Votre thème astral, votre chemin de vie ou simplement ce que vous traversez : je pars de vous pour choisir les pierres." />
+      <PageHead crumb="Signature Kitsune" eyebrow="Fait main · personnalisé" title={<>Signature Kitsune, <em>plus qu'un bijou, un rituel.</em></>} lead="Des pièces uniques, assemblées à la main pour une personne. Votre thème astral, votre chemin de vie ou simplement ce que vous traversez : je pars de vous pour choisir les pierres." />
       <div className="grid grid-4">{inRange("signature").map((p) => <ProductCard key={p.slug} product={p} />)}</div>
       <section className="section" style={{ display: "grid", gap: 48, gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))" }}>
         <div className="stack">
@@ -22,7 +22,7 @@ export default function Signature() {
           </ol>
           <Link href="/contact" className="btn btn-outline" style={{ alignSelf: "flex-start" }}>Me raconter votre projet</Link>
         </div>
-        <div className="panel stack">
+        <div className="panel stack frame">
           <h3>Bon à savoir</h3>
           <ul className="prose" style={{ margin: 0 }}>
             <li>Taille standard adulte : 17 à 18 cm de tour de poignet. Autres tailles sur demande.</li>

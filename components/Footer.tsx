@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer dark">
       <div className="container footer-inner">
         <div className="stack" style={{ maxWidth: 320 }}>
-          <img src="/logos/les-bijoux-de-kitsune-nuit.svg" alt="Les Bijoux de Kitsune" width={150} height={170} />
+          <img src="/logos/les-bijoux-de-kitsune-prune.svg" alt="Les Bijoux de Kitsune" width={150} height={170} />
           <p className="muted" style={{ fontSize: 14 }}>Une maison du Monde de Kitsune.</p>
         </div>
         <div className="footer-cols">
@@ -31,6 +31,10 @@ export default function Footer() {
             <Link href="/contact">Contact</Link>
           </div>
         </div>
+      </div>
+      <div className="container footer-bottom">
+        <span>© 2026 Les Bijoux de Kitsune — Tous droits réservés</span>
+        <span>Porter ce qui résonne.</span>
       </div>
     </footer>
   );

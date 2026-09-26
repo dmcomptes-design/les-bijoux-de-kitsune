@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Notre histoire", description: "Denis
 export default function Histoire() {
   return (
     <div className="container">
-      <PageHead crumb="Notre histoire" title="Je m'appelle Denis. Et je crois que les pierres ont quelque chose à raconter." />
+      <PageHead crumb="Notre histoire" title={<>Je m'appelle Denis. <em>Et je crois que les pierres ont quelque chose à raconter.</em></>} />
       <div className="prose">
         <p className="lead">Les Bijoux de Kitsune sont nés d'une envie simple : créer des objets qui accompagnent, sans compliquer ce qui est beau. <span className="todo">[Une ou deux phrases sur ton parcours.]</span></p>
         <p>J'assemble mes créations à la main, dans mon atelier près de Clermont-Ferrand. Je choisis chaque pierre pour sa couleur, sa matière et ce qu'elle évoque. Et parce qu'un univers se construit aussi par des rencontres, je propose à côté de mes créations une sélection de bijoux choisis chez des fournisseurs de confiance.</p>

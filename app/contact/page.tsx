@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Contact et bijou sur demande", descr
 export default function Contact() {
   return (
     <div className="container">
-      <PageHead crumb="Contact" title="Parlons de votre bijou." lead="Une question sur une commande, une pierre, une taille ? Une idée de création pour vous ou pour quelqu'un que vous aimez ? Écrivez-moi : je vous réponds personnellement." />
+      <PageHead crumb="Contact" title={<>Parlons de <em>votre bijou.</em></>} lead="Une question sur une commande, une pierre, une taille ? Une idée de création pour vous ou pour quelqu'un que vous aimez ? Écrivez-moi : je vous réponds personnellement." />
       <div style={{ display: "grid", gap: 48, gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", alignItems: "start" }}>
         <ContactForm />
         <div className="panel stack">

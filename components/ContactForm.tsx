@@ -49,8 +49,8 @@ export default function ContactForm() {
         </div>
       )}
       <div className="field"><label htmlFor="message">Message</label><textarea id="message" name="message" className="textarea" required /></div>
-      {err && <p role="alert" style={{ color: "var(--grenat)", fontSize: 14 }}>{err}</p>}
-      {state === "error" && <p role="alert" style={{ color: "var(--grenat)", fontSize: 14 }}>L'envoi n'a pas abouti. Réessayez, ou écrivez-moi directement par e-mail.</p>}
+      {err && <p role="alert" style={{ color: "var(--erreur)", fontSize: 14 }}>{err}</p>}
+      {state === "error" && <p role="alert" style={{ color: "var(--erreur)", fontSize: 14 }}>L'envoi n'a pas abouti. Réessayez, ou écrivez-moi directement par e-mail.</p>}
       <button type="submit" className="btn btn-primary" style={{ alignSelf: "flex-start" }} disabled={state === "sending"}>{state === "sending" ? "Envoi…" : "Envoyer"}</button>
     </form>
   );

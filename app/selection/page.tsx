@@ -11,7 +11,7 @@ export default function Selection() {
   const all = inRange("selection");
   return (
     <div className="container">
-      <PageHead crumb="La Sélection" eyebrow="Sélection Kitsune" title="La Sélection Kitsune — des bijoux choisis pour vous." lead="À côté de mes créations, je sélectionne des bijoux chez des fournisseurs de confiance : colliers, bagues, boucles d'oreilles et bracelets qui prolongent l'univers Kitsune. Ils ne sont pas faits main par moi et partent directement de chez nos partenaires." />
+      <PageHead crumb="La Sélection" eyebrow="Sélection Kitsune" title={<>La Sélection Kitsune, <em>des bijoux choisis pour vous.</em></>} lead="À côté de mes créations, je sélectionne des bijoux chez des fournisseurs de confiance : colliers, bagues, boucles d'oreilles et bracelets qui prolongent l'univers Kitsune. Ils ne sont pas faits main par moi et partent directement de chez nos partenaires." />
       <div className="panel" style={{ marginBottom: 48 }}>
         <ul className="reassure-list" style={{ border: 0, padding: 0 }}>
           <li><span><strong>Chaque modèle est choisi</strong> et vérifié sur échantillon avant d'entrer dans la Sélection.</span></li>

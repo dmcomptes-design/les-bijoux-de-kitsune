@@ -39,8 +39,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
         <div className="stack" style={{ gap: 20 }}>
           <RangeBadges product={p} full />
-          <h1 style={{ fontSize: 40, lineHeight: "46px" }}>{p.name}</h1>
-          <div className="price" style={{ fontSize: 28, lineHeight: "32px" }}>{formatPrice(p.price)}</div>
+          <h1 style={{ fontSize: 44, lineHeight: 1.15 }}>{p.name}</h1>
+          <div className="price">{formatPrice(p.price)}</div>
           <p className="muted" style={{ fontSize: 17, lineHeight: "28px" }}>{intro}</p>
           <AddToCart slug={p.slug} name={p.name} price={p.price} withSize={wearsOnWrist} soldOut={p.soldOut} />
           {p.personalised && <Link href="/contact" className="btn">Me confier mes informations</Link>}
@@ -97,7 +97,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </div>
       {related.length > 0 && (
         <section className="stack" style={{ gap: 32 }}>
-          <h2 style={{ fontSize: 32, lineHeight: "38px" }}>Vous aimerez aussi</h2>
+          <h2>Vous aimerez <em>aussi</em></h2>
           <div className="grid grid-4">{related.map((x) => <ProductCard key={x.slug} product={x} />)}</div>
         </section>
       )}

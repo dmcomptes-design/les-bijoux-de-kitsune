@@ -13,7 +13,7 @@ export default function AddToCart({ slug, name, price, withSize, soldOut }: { sl
     <div className="stack">
       {withSize && (
         <div className="stack" style={{ gap: 12 }}>
-          <span style={{ fontSize: 14, fontWeight: 600 }}>Tour de poignet : {size} cm</span>
+          <span style={{ fontSize: 14, fontWeight: 500 }}>Tour de poignet : {size} cm</span>
           <div className="pills" role="group" aria-label="Tour de poignet">
             {SIZES.map((s) => (
               <button key={s} type="button" className="pill" aria-pressed={s === size} onClick={() => setSize(s)} style={{ minWidth: 60, justifyContent: "center" }}>

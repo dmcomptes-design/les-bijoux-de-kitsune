@@ -7,8 +7,8 @@ export const metadata: Metadata = { title: "Le rituel Kitsune", description: "Le
 export default function Rituel() {
   return (
     <div className="container">
-      <PageHead crumb="Le rituel Kitsune" eyebrow="Le rituel Kitsune" title="Avant de vous rejoindre, chaque création passe entre mes mains." lead="Le rituel Kitsune, c'est le temps que je prends pour chaque bijou fait main. Trois gestes simples, toujours les mêmes." />
-      <div className="band" style={{ marginBottom: 64 }}>
+      <PageHead crumb="Le rituel Kitsune" eyebrow="Le rituel Kitsune" title={<>Avant de vous rejoindre, <em>chaque création passe entre mes mains.</em></>} lead="Le rituel Kitsune, c'est le temps que je prends pour chaque bijou fait main. Trois gestes simples, toujours les mêmes." />
+      <div className="band dark prune" style={{ marginBottom: 64 }}>
         <ol className="steps">
           <li><span className="step-n">1</span><h3>Je choisis la pierre</h3><p className="muted">Pour sa couleur, sa matière et ce qu'elle évoque dans la tradition de la lithothérapie. Chaque pierre est nommée telle qu'elle est : naturelle, teintée ou traitée.</p></li>
           <li><span className="step-n">2</span><h3>Je la purifie et j'assemble le bijou</h3><p className="muted">Encens, eau, sel ou son, puis l'assemblage à la main, perle après perle.</p></li>

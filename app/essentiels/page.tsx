@@ -16,7 +16,7 @@ export default function Essentiels() {
   const groups = ["Essences Stellaires", "Porte-clés en pierre", "Éditions spéciales"];
   return (
     <div className="container">
-      <PageHead crumb="Les Essentiels" eyebrow="Fait main" title="Les Essentiels — une pierre, une intention." lead="Des bijoux simples, faits main, pour entrer dans l'univers Kitsune. Chacun est centré sur une pierre, choisie pour ce qu'elle évoque dans la tradition de la lithothérapie, et passe par le rituel Kitsune avant l'envoi." />
+      <PageHead crumb="Les Essentiels" eyebrow="Fait main" title={<>Les Essentiels, <em>une pierre, une intention.</em></>} lead="Des bijoux simples, faits main, pour entrer dans l'univers Kitsune. Chacun est centré sur une pierre, choisie pour ce qu'elle évoque dans la tradition de la lithothérapie, et passe par le rituel Kitsune avant l'envoi." />
       {groups.map((g) => (
         <section key={g} className="stack" style={{ gap: 24, paddingBottom: 64 }}>
           <h2>{g}</h2>
