@@ -1,8 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Pierres naturelles · créations et sélection",
+        "title": "Chaque pierre porte une intention.",
+        "title_em": "Chaque bijou, la vôtre.",
+        "text": "Des bijoux en pierres naturelles : mes créations, assemblées à la main, et une sélection de pièces que j'ai choisies pour vous.",
+        "button_label": "Entrer dans la boutique",
+        "button_link": "",
+        "button2_label": "Créer mon bijou sur demande",
+        "button2_link": ""
+      }
     },
     "reassurance": {
       "type": "reassurance",
@@ -41,16 +59,16 @@
         "r2",
         "r3",
         "r4"
-      ]
+      ],
+      "settings": {}
     },
     "promise": {
       "type": "promise",
-      "settings": {},
       "blocks": {
         "s1": {
           "type": "step",
           "settings": {
-            "number": "i.",
+            "number": "",
             "title": "Je choisis la pierre",
             "text": "Pour sa couleur, sa matière et ce qu'elle évoque. Chaque pierre est nommée telle qu'elle est."
           }
@@ -58,7 +76,7 @@
         "s2": {
           "type": "step",
           "settings": {
-            "number": "ii.",
+            "number": "",
             "title": "J'assemble à la main",
             "text": "Perle après perle, dans mon atelier près de Clermont-Ferrand."
           }
@@ -66,7 +84,7 @@
         "s3": {
           "type": "step",
           "settings": {
-            "number": "iii.",
+            "number": "",
             "title": "J'y dépose une intention",
             "text": "Un moment de calme avant l'envoi : un rappel doux, porté au poignet."
           }
@@ -76,11 +94,18 @@
         "s1",
         "s2",
         "s3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "La promesse Kitsune",
+        "title": "Vous n'avez pas besoin d'un bijou de plus.",
+        "title_em": "Vous avez besoin de celui-là.",
+        "text": "Il y a des moments où l'on cherche quelque chose à ancrer. Un rappel doux, porté au poignet. Mes créations sont pensées et assemblées à la main, pour accompagner ce que vous vivez, pas seulement ce que vous portez.",
+        "button_label": "Découvrir le rituel",
+        "button_link": ""
+      }
     },
     "ranges": {
       "type": "ranges",
-      "settings": {},
       "blocks": {
         "g1": {
           "type": "range",
@@ -114,29 +139,40 @@
         "g1",
         "g2",
         "g3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Nos univers",
+        "title": "Par où souhaitez-vous",
+        "title_em": "commencer votre voyage ?"
+      }
     },
     "featured": {
       "type": "featured-collection",
       "settings": {
-        "collection": "signature",
+        "eyebrow": "",
         "title": "Nos créations",
         "title_em": "les plus aimées",
+        "collection": "signature",
         "count": 4,
         "link_label": "Voir toute la boutique"
       }
     },
     "quote": {
       "type": "quote",
-      "settings": {}
+      "settings": {
+        "quote": "Ce n'est pas le bracelet qu'elles portent. C'est ce qu'il leur rappelle chaque matin.",
+        "author": "Denis, créateur des Bijoux de Kitsune",
+        "button_label": "Créer mon bijou sur demande",
+        "button_link": ""
+      }
     },
     "selection": {
       "type": "featured-collection",
       "settings": {
         "eyebrow": "La Sélection Kitsune",
-        "collection": "selection",
         "title": "Des bijoux",
         "title_em": "choisis pour vous",
+        "collection": "selection",
         "count": 4,
         "link_label": "Voir la Sélection"
       }
