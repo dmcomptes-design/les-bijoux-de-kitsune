@@ -1,8 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "contact_email": "[adresse e-mail]",
+    "contact_email": "lemondedekitsune@gmail.com",
     "delai_atelier": "2 à 5 jours ouvrés",
-    "delai_selection": "[délai fournisseur]"
+    "delai_selection": "[délai fournisseur]",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Une maison du Monde de Kitsune.",
+          "signature": "Porter ce qui résonne."
+        }
+      }
+    },
+    "content_for_index": []
   },
   "presets": {}
 }
