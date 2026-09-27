@@ -79,11 +79,11 @@
 
       <ul class="reassure-list">
         {%- if handmade -%}
-          <li>Fait main en France{% if personalised %}, assemblé pour vous en 48 à 72 heures{% endif %}</li>
+          <li>Fait main en France{% if personalised %}, assemblé pour vous{% endif %}, expédié sous {{ settings.delai_atelier }}</li>
           <li>Passé par le rituel Kitsune avant l'envoi</li>
           <li>{% if personalised %}Pièce personnalisée : sans droit de rétractation{% else %}14 jours pour changer d'avis{% endif %}</li>
         {%- else -%}
-          <li>Choisi et vérifié par Kitsune sur échantillon</li>
+          <li>Sélectionné par Kitsune chez un fournisseur de confiance</li>
           <li>Expédié par notre partenaire sous {{ settings.delai_selection }}</li>
           <li>14 jours pour changer d'avis</li>
         {%- endif -%}
