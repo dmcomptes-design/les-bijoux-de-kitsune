@@ -84,7 +84,7 @@
           <li>{% if personalised %}Pièce personnalisée : sans droit de rétractation{% else %}14 jours pour changer d'avis{% endif %}</li>
         {%- else -%}
           <li>Sélectionné par Kitsune chez un fournisseur de confiance</li>
-          {%- if product.tags contains 'dropshipping' -%}<li>Expédié par notre partenaire sous {{ settings.delai_selection }}</li>{%- else -%}<li>En stock chez moi, expédié depuis la France sous {{ settings.delai_atelier }}</li>{%- endif -%}
+          {%- if product.tags contains 'dropshipping' -%}<li>Expédié par notre partenaire, livraison sous {{ product.metafields.custom.delai_livraison.value | default: settings.delai_selection }}</li>{%- else -%}<li>En stock chez moi, expédié depuis la France sous {{ settings.delai_stock }}</li>{%- endif -%}
           <li>14 jours pour changer d'avis</li>
         {%- endif -%}
       </ul>
@@ -110,7 +110,7 @@
             {%- if handmade -%}
               <p>Expédié depuis la France sous {{ settings.delai_atelier }}.</p>
             {%- else -%}
-              {%- if product.tags contains 'dropshipping' -%}<p>Expédié directement par notre partenaire, sous {{ settings.delai_selection }}.</p>{%- else -%}<p>En stock chez moi : expédié depuis la France sous {{ settings.delai_atelier }}.</p>{%- endif -%}
+              {%- if product.tags contains 'dropshipping' -%}<p>Expédié directement par notre partenaire : livraison sous {{ product.metafields.custom.delai_livraison.value | default: settings.delai_selection }}.</p>{%- else -%}<p>En stock chez moi : expédié depuis la France sous {{ settings.delai_stock }}.</p>{%- endif -%}
             {%- endif -%}
             <p>{% if personalised %}Les pièces personnalisées sont fabriquées pour vous : le droit de rétractation ne s'applique pas.{% else %}Vous disposez de 14 jours après réception pour changer d'avis.{% endif %}</p>
             {%- if shop.refund_policy -%}<a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>{%- endif -%}
