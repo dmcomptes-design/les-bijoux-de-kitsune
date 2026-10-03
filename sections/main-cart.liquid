@@ -7,6 +7,7 @@
     </div>
   {%- else -%}
     <form action="{{ routes.cart_url }}" method="post" class="stack" style="gap: 24px; max-width: 860px;">
+      {% render 'free-shipping-bar' %}
       <div class="table-wrap">
         <table class="table">
           <thead><tr><th>Bijou</th><th>Quantité</th><th>Prix</th></tr></thead>
@@ -42,7 +43,7 @@
           <button type="submit" name="checkout" class="btn btn-primary">Passer commande</button>
         </div>
       </div>
-      <p class="muted" style="font-size: 14px;">Frais de port calculés à l'étape suivante.</p>
+      <p class="muted" style="font-size: 14px;">{% if settings.free_shipping_threshold > 0 %}Livraison offerte dès {{ settings.free_shipping_threshold | times: 100 | money_without_trailing_zeros }}. {% endif %}Frais de port calculés à l'étape suivante.</p>
     </form>
   {%- endif -%}
 </div>

@@ -264,3 +264,11 @@ p { margin: 0; }
 .cart-line-qty { width: 72px; }
 .errors, .form-error { color: var(--erreur); font-size: 14px; }
 .form-success { border: 1px solid var(--line-strong); padding: var(--space-4) var(--space-6); }
+
+/* Livraison offerte */
+.ship-bar { border: 1px solid var(--line); padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+.ship-bar-text { margin: 0; font-size: 15px; }
+.ship-bar-text strong { color: var(--accent); font-weight: 500; }
+.ship-bar-track { height: 4px; background: var(--line); overflow: hidden; }
+.ship-bar-fill { display: block; height: 100%; background: var(--or); transition: width .4s ease; }
+.ship-bar.is-done { border-color: var(--or); }

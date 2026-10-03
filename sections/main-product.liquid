@@ -78,6 +78,7 @@
       {%- endform -%}
 
       <ul class="reassure-list">
+        {%- if settings.free_shipping_threshold > 0 -%}<li>Livraison offerte dès {{ settings.free_shipping_threshold | times: 100 | money_without_trailing_zeros }} d'achat</li>{%- endif -%}
         {%- if handmade -%}
           <li>Fait main en France{% if personalised %}, assemblé pour vous{% endif %}, expédié sous {{ settings.delai_atelier }}</li>
           <li>Passé par le rituel Kitsune avant l'envoi</li>
