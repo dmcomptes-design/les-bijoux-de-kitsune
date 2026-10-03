@@ -1,0 +1,16 @@
+{%- comment -%} Logos des moyens de paiement activés dans Shopify. Paramètre : label (true pour afficher « Paiement sécurisé »). {%- endcomment -%}
+{%- if shop.enabled_payment_types.size > 0 -%}
+  <div class="pay-row">
+    {%- if label -%}
+      <span class="pay-label">
+        <svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M3 6V4a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="1" y="6" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+        Paiement sécurisé
+      </span>
+    {%- endif -%}
+    <ul class="pay-icons" aria-label="Moyens de paiement acceptés">
+      {%- for type in shop.enabled_payment_types -%}
+        <li>{{ type | payment_type_svg_tag: class: 'pay-icon' }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}

@@ -30,6 +30,7 @@
   </div>
   <div class="container footer-bottom">
     <span>© {{ 'now' | date: '%Y' }} {{ shop.name }} — Tous droits réservés</span>
+    {% render 'payment-icons' %}
     <span>{{ section.settings.signature }}</span>
   </div>
 </footer>

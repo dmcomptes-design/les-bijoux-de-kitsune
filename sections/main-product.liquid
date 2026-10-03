@@ -99,6 +99,7 @@
           {%- if current_variant.available -%}Ajouter au panier{%- else -%}Épuisé{%- endif -%}
         </button>
         {{ form | payment_terms }}
+        {% render 'payment-icons', label: true %}
       {%- endform -%}
 
       <ul class="reassure-list">
