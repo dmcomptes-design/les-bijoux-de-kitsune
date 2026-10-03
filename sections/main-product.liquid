@@ -64,6 +64,30 @@
               <label for="v-{{ variant.id }}" class="pill">{{ variant.title }}</label>
             {%- endfor -%}
           </fieldset>
+          {%- assign first_option = product.options.first | downcase -%}
+          {%- if first_option contains 'poignet' -%}
+            <details class="size-guide">
+              <summary>Comment choisir ma taille ?</summary>
+              <div class="size-guide-body">
+                <ol>
+                  <li>Entourez votre poignet, juste sous l'os, avec un mètre ruban souple. À défaut, utilisez une ficelle, puis mesurez-la à plat avec une règle.</li>
+                  <li>Ajoutez 1 cm pour un bracelet ajusté, ou 2 cm pour un bracelet plus ample.</li>
+                  <li>Choisissez la taille la plus proche du résultat.</li>
+                </ol>
+                <table class="size-table">
+                  <thead><tr><th>Tour de poignet mesuré</th><th>Taille à choisir</th></tr></thead>
+                  <tbody>
+                    <tr><td>13,5 à 14,5 cm</td><td>15 cm</td></tr>
+                    <tr><td>14,5 à 15,5 cm</td><td>16 cm</td></tr>
+                    <tr><td>15,5 à 16,5 cm</td><td>17 cm</td></tr>
+                    <tr><td>16,5 à 17,5 cm</td><td>18 cm</td></tr>
+                    <tr><td>17,5 à 18,5 cm</td><td>19 cm</td></tr>
+                  </tbody>
+                </table>
+                <p>Entre deux tailles ? Prenez la plus grande, ou indiquez votre tour de poignet exact dans le mot du panier : j'ajuste à la main.</p>
+              </div>
+            </details>
+          {%- endif -%}
         {%- endif -%}
         {%- if personalised -%}
           <div class="field">
