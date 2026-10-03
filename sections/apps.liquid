@@ -1,0 +1,14 @@
+<div class="container section-apps" style="padding-top: 48px; padding-bottom: 48px;">
+  {%- for block in section.blocks -%}
+    {% render block %}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Applis",
+  "tag": "section",
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "Applis" }]
+}
+{% endschema %}

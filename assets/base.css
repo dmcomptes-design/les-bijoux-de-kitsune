@@ -272,3 +272,6 @@ p { margin: 0; }
 .ship-bar-track { height: 4px; background: var(--line); overflow: hidden; }
 .ship-bar-fill { display: block; height: 100%; background: var(--or); transition: width .4s ease; }
 .ship-bar.is-done { border-color: var(--or); }
+
+/* Blocs d'applis (avis clients, etc.) */
+.app-blocks, .section-apps { color: var(--text); font-family: var(--font-sans); }

@@ -125,6 +125,14 @@
     </div>
   </div>
 
+  {%- if section.blocks.size > 0 -%}
+    <div class="app-blocks stack" style="gap: 32px; margin-bottom: 64px;">
+      {%- for block in section.blocks -%}
+        {%- if block.type == '@app' -%}{% render block %}{%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
   {%- assign related = collections[range_handle].products -%}
   {%- if related.size > 1 -%}
     <section class="stack" style="gap: 32px;">
@@ -145,6 +153,7 @@
 {% schema %}
 {
   "name": "Fiche produit",
-  "settings": []
+  "settings": [],
+  "blocks": [{ "type": "@app" }]
 }
 {% endschema %}
