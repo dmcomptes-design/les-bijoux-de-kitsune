@@ -31,6 +31,22 @@
   <div class="container footer-bottom">
     <span>© {{ 'now' | date: '%Y' }} {{ shop.name }} — Tous droits réservés</span>
     {% render 'payment-icons' %}
+    {%- if settings.ashiato_url != blank and settings.ashiato_site_id != blank -%}
+      <button type="button" class="optout-link" data-ashiato-optout>Ne pas mesurer mes visites</button>
+      <script>
+        (function () {
+          var b = document.querySelector('[data-ashiato-optout]');
+          if (!b) return;
+          function maj() { try { if (localStorage.getItem('ashiato-optout') === '1') b.textContent = 'Mesure de vos visites désactivée'; } catch (e) {} }
+          b.addEventListener('click', function () {
+            try { localStorage.setItem('ashiato-optout', '1'); } catch (e) {}
+            if (window.ashiato && window.ashiato.optOut) window.ashiato.optOut();
+            maj();
+          });
+          maj();
+        })();
+      </script>
+    {%- endif -%}
     <span>{{ section.settings.signature }}</span>
   </div>
 </footer>

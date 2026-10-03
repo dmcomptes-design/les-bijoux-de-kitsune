@@ -1,0 +1,5 @@
+{%- comment -%} Mesure d'audience Ashiato (sans cookie). Réglages : Paramètres du thème > Mesure d'audience. {%- endcomment -%}
+{%- if settings.ashiato_url != blank and settings.ashiato_site_id != blank and request.design_mode == false -%}
+  {%- assign ashiato_base = settings.ashiato_url | strip -%}
+  <script defer src="{{ ashiato_base | append: '/t.js' | replace: '//t.js', '/t.js' }}" data-site="{{ settings.ashiato_site_id | strip | escape }}" data-endpoint="{{ ashiato_base | append: '/.netlify/functions/collect' | replace: '//.netlify', '/.netlify' }}"></script>
+{%- endif -%}

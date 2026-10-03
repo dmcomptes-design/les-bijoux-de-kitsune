@@ -51,7 +51,7 @@
       <h1 style="font-size: 44px; line-height: 1.15;">{{ product.title }}</h1>
       <div class="price">{{ current_variant.price | money }}</div>
 
-      {%- form 'product', product, class: 'stack', style: 'gap: 16px;' -%}
+      {%- form 'product', product, class: 'stack', style: 'gap: 16px;', data-ashiato: 'ajout_panier' -%}
         {%- if product.has_only_default_variant -%}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
         {%- else -%}
@@ -174,6 +174,14 @@
     </section>
   {%- endif -%}
 </div>
+
+<script>
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || !f.hasAttribute || !f.hasAttribute('data-ashiato') || !window.ashiato || !window.ashiato.track) return;
+    window.ashiato.track('ajout_panier', {{ product.handle | json }}, {{ product.price | divided_by: 100.0 | json }});
+  });
+</script>
 
 {% schema %}
 {

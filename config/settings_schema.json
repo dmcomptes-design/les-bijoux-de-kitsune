@@ -10,12 +10,64 @@
   {
     "name": "Boutique",
     "settings": [
-      { "type": "text", "id": "contact_email", "label": "E-mail affiché", "default": "[adresse e-mail]" },
-      { "type": "url", "id": "instagram_url", "label": "Lien Instagram" },
-      { "type": "number", "id": "free_shipping_threshold", "label": "Livraison offerte à partir de (€)", "default": 50, "info": "Doit correspondre au seuil réglé dans Paramètres, puis Expédition et livraison. Mettre 0 pour masquer la barre." },
-      { "type": "text", "id": "delai_atelier", "label": "Délai d'expédition des créations faites main", "default": "15 jours" },
-      { "type": "text", "id": "delai_stock", "label": "Délai d'expédition des bijoux de la Sélection en stock", "default": "2 à 5 jours ouvrés" },
-      { "type": "text", "id": "delai_selection", "label": "Délai de livraison par défaut du dropshipping", "default": "10 à 20 jours ouvrés", "info": "Remplacé par le champ méta produit custom.delai_livraison s'il est rempli sur la fiche." }
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "E-mail affiché",
+        "default": "[adresse e-mail]"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Lien Instagram"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Livraison offerte à partir de (€)",
+        "default": 50,
+        "info": "Doit correspondre au seuil réglé dans Paramètres, puis Expédition et livraison. Mettre 0 pour masquer la barre."
+      },
+      {
+        "type": "text",
+        "id": "delai_atelier",
+        "label": "Délai d'expédition des créations faites main",
+        "default": "15 jours"
+      },
+      {
+        "type": "text",
+        "id": "delai_stock",
+        "label": "Délai d'expédition des bijoux de la Sélection en stock",
+        "default": "2 à 5 jours ouvrés"
+      },
+      {
+        "type": "text",
+        "id": "delai_selection",
+        "label": "Délai de livraison par défaut du dropshipping",
+        "default": "10 à 20 jours ouvrés",
+        "info": "Remplacé par le champ méta produit custom.delai_livraison s'il est rempli sur la fiche."
+      }
+    ]
+  },
+  {
+    "name": "Mesure d'audience (Ashiato)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Ashiato mesure les visites sans cookie. Le script n'est chargé que si les deux champs sont remplis."
+      },
+      {
+        "type": "text",
+        "id": "ashiato_url",
+        "label": "Adresse de ton Ashiato",
+        "info": "Par exemple https://ashiato.netlify.app (sans / final)."
+      },
+      {
+        "type": "text",
+        "id": "ashiato_site_id",
+        "label": "Identifiant du site",
+        "info": "La clé du site créée dans ton tableau de bord Ashiato (data-site)."
+      }
     ]
   }
 ]
