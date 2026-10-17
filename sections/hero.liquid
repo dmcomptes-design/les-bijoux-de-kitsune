@@ -17,7 +17,7 @@
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 45vw, 100vw' }}
       {%- else -%}
-        <img src="{{ 'logo-bijoux-kitsune-prune.svg' | asset_url }}" alt="{{ shop.name }} : un renard doré assis sur un croissant de lune" width="400" height="453">
+        <img src="{{ 'logo-monde-kitsune-nuit.png' | asset_url }}" alt="{{ shop.name }} : un renard doré assis sur un croissant de lune" width="400" height="460">
       {%- endif -%}
     </div>
   </div>
