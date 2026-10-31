@@ -295,3 +295,6 @@ p { margin: 0; }
 .pay-icon { display: block; width: 38px; height: 24px; }
 
 .optout-link { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Lien d'évitement visible au clavier */
+.visually-hidden:focus { position: fixed; top: 12px; left: 12px; width: auto; height: auto; clip: auto; overflow: visible; z-index: 100; padding: 10px 16px; background: var(--or); color: #1a1219; }

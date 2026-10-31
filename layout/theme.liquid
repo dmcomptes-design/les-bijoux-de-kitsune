@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#1a1219">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+    <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
     <title>
       {{ page_title }}
       {%- if current_tags %} · {{ current_tags | join: ', ' }}{% endif -%}
@@ -16,12 +17,13 @@
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
     {% render 'meta-tags' %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    {{ 'cormorant-garamond-latin-300-normal.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'jost-latin-300-normal.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'fonts.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
     {% render 'ashiato' %}
+    {% render 'structured-data' %}
   </head>
   <body class="template-{{ template.name }}">
     <a class="visually-hidden" href="#contenu">Aller au contenu</a>
